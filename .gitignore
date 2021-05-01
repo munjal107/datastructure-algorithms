@@ -11,5 +11,6 @@ __pycache__/
 *.h5
 *.txt
 *.json
+practice.py
 
 

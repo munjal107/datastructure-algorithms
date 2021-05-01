@@ -1,31 +1,50 @@
 class Graph:
     def __init__(self, edges):
+        self.edges = edges
         self.graph_dict = {}
         for start, end in edges:
-            if start not in self.graph_dict:
-                self.graph_dict[start] = [end]
-            else:
+            if start in self.graph_dict:
                 self.graph_dict[start].append(end)
-
-    def get_path(self, start, end, path=[]):
+            else:
+                self.graph_dict[start] = [end]
+            
+        #print(self.graph_dict)
+    
+    def get_path(self, start, end, path = []):
         path = path + [start]
+
         if start == end:
             return [path]
         
         if start not in self.graph_dict:
             return []
-        
+
         paths = []
         for node in self.graph_dict[start]:
             if node not in path:
                 new_paths = self.get_path(node, end, path)
-                for n in new_paths:
-                    paths.append(n)
+                for p in new_paths:
+                    paths.append(p)
         
         return paths
-    
-    
+        
+    def get_shortest_path(self, start, end, path=[]):
+        path = path + [start]
 
+        if start == end:
+            return path
+        if start not in self.graph_dict:
+            return []
+        
+        shortest_path  = None
+        for node in self.graph_dict[start]:
+            if node not in path:
+                new_paths = self.get_shortest_path(node, end, path)
+            if new_paths:
+                if shortest_path is None or len(shortest_path) > len(new_paths):
+                    shortest_path = new_paths
+        
+        return shortest_path
 
 
 if __name__ == '__main__':
