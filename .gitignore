@@ -8,6 +8,7 @@ __pycache__/
 
 *.ipynb_checkpoints
 *.csv
+*.xlsx
 *.h5
 *.txt
 *.json
