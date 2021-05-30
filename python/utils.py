@@ -10,3 +10,12 @@ def time_it(func):
     
     return wrapper
 
+"""
+# usage
+from utils import *
+
+@time_it 
+def myfunc():
+    return
+
+"""

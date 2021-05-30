@@ -71,7 +71,27 @@ class Arrays:
                 max_so_far = max_ending_here
         
         print(max_so_far)
+    
+    # Minimum number of jumps to reach end
+    # https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
+    def min_jumps_to_end_dynamic(self, arr):
+        n = len(arr)
+        jumps = [0 for i in range(n)]
+        
+        if n==0 or arr[0]==0:
+            return -1
+        
+        jumps[0] = 0
 
+        for i in range(1,n):
+            jumps[i] = sys.maxsize
+            for j in range(i):
+                if i <= j + arr[j] and jumps[j] != sys.maxsize:
+                    jumps[i] = min(jumps[i], jumps[j] + 1)
+                    break
+        return jumps[n-1]
+
+    
 
 if __name__ == '__main__':
     obj = Arrays()
@@ -92,3 +112,6 @@ if __name__ == '__main__':
     arr = [-2, -3, 4, -1, -2, 1, 5, -3]
     # arr = [-2, -3, 4, -1, -2, 1, -90, 100] # 100
     obj.largest_cont_sum(arr)
+
+    arr = [1, 3, 6, 3, 2, 3, 6, 8, 9, 5]
+    print(obj.min_jumps_to_end_dynamic(arr))

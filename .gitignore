@@ -12,6 +12,18 @@ __pycache__/
 *.h5
 *.txt
 *.json
+
+# java
+*.in
+*.out
+*.iml
+*.class
+*.exe
+.idea
+
+*.pdf
+*.docx
+
 practice.py
 
 

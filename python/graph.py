@@ -43,7 +43,6 @@ class Graph:
             if new_paths:
                 if shortest_path is None or len(shortest_path) > len(new_paths):
                     shortest_path = new_paths
-        
         return shortest_path
 
 

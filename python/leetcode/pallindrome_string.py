@@ -83,8 +83,6 @@ def expand_around_center(s, left, right):
         r+=1
     return r-l-1
 
-
-
 def longestPalindrome3(s):
     s='babab'
     if len(s)<2:
