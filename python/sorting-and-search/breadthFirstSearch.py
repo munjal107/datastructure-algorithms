@@ -15,8 +15,8 @@ class Graph:
         visited[start] = True
 
         while que:
-            curr = que[0]
-            print(que.pop(0))
+            curr = que.pop(0)
+            print(curr)
             for node in self.graph_dict[curr]:
                 if not visited[node]:
                     que.append(node)
