@@ -10,9 +10,9 @@ __pycache__/
 
 *.ipynb_checkpoints
 *.csv
-# *.xlsx
+*.xlsx
 *.h5
-# *.txt
+*.txt
 *.json
 
 # java
