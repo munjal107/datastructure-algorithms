@@ -1,6 +1,8 @@
 
 # others
 
+!ds_types.txt
+!FINAL450.xslx
 
 __pypackages__/
 __pycache__/
@@ -25,6 +27,5 @@ __pycache__/
 *.docx
 
 practice.py
-!FINAL450.xslx
 
 
