@@ -13,3 +13,9 @@ Graph
 Trie
 Dynamic Programming
 Bit Manipulation
+
+
+############# super 30 curriculum ###########
+10 - peak ele
+
+#############################################
