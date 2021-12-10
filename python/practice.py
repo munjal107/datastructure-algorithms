@@ -1,50 +1,70 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-    
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+class Graph:
+    def __init__(self, edges):
+        self.edges = edges
+        self.graph_dict = {}
+        for start, end in edges:
+            if start in self.graph_dict.keys():
+                self.graph_dict[start].append(end)
+            else:
+                self.graph_dict[start] = [end]
+        print(self.graph_dict)
 
-    def push(self, data):
-        temp = Node(data)
-        temp.next = self.head
-        temp = self.head
+    def get_path(self, start, end, path=[]):
+        path = path + [start]
 
-    def append(self, data):
-        node = Node(data)
-        # print("hell", data)
-        temp = self.head
-        if temp:
-            while temp.next:
-                temp = temp.next
-            temp.next = node
-        else:
-            self.head = node 
+        if start == end:
+            return [path]
 
-    def show_data(self):
-        print("showing data...")
-        temp = self.head
-        while temp:
-            print(temp.data)
-            temp = temp.next
+        if start not in self.graph_dict.keys():
+            return []
+        
+        paths = []
+        for node in self.graph_dict[start]:
+            if node not in path:
+                print(f"start -{start} - node=>{node} - end=>{end}")
+                new_paths = self.get_path(node, end, path)
+                print(f"after - node=>{node} - {new_paths}")
+                for p in new_paths:
+                    paths.append(p)
+        
+        return paths
+
+    def get_shortest_path(self, start, end, path=[]):
+        path = path + [start]
+
+        if start==end:
+            return [path]
+        
+        if start not in self.graph_dict.keys():
+            return []
+        
+        shortest_path = None
+        for node in self.graph_dict[start]:
+            if node not in path:
+                new_paths = self.get_shortest_path(node, end, path)
+            if new_paths:
+                print(new_paths)
+                pass
+
+
+
 
 if __name__ == "__main__":
-    llist = LinkedList()
-    llist.push(2)
-    llist.push(3)
-    llist.push(4)
-    llist.push(5)
+    routes = [
+        ("Mumbai", "Paris"),
+        ("Mumbai", "Dubai"),
+        ("Paris", "Dubai"),
+        ("Paris", "New York"),
+        ("Dubai", "New York"),
+        ("New York", "Toronto"),
+        # ("Mumbai", "New York")
 
-    llist.show_data()
+    ]
 
-    llist.push(100)
-    llist.show_data()
+    route_graph = Graph(routes)
 
-   # llist.append(101)
-    llist.show_data()
-
-    #llist.deleteNode(3)
-    llist.show_data()
+    s = "Mumbai"
+    e = "New York"
+    ap = route_graph.get_path(s, e)
+    print(ap)

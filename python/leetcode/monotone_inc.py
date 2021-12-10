@@ -1,6 +1,7 @@
 
 """ 
-A binary string is monotone increasing if it consists of some number of 0's (possibly none), followed by some number of 1's (also possibly none).
+A binary string is monotone increasing if it consists of some number of 0's (possibly none), followed by 
+some number of 1's (also possibly none).
 
 You are given a binary string s. You can flip s[i] changing it from 0 to 1 or from 1 to 0.
 
@@ -43,6 +44,8 @@ class Solution:
 
 if __name__ == '__main__':
     s = "010110"
+    
+    s = "00011000"
     obj = Solution()
     count = obj.minFlipsMonoIncr(s)
     print(count)

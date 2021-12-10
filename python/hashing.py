@@ -17,7 +17,7 @@ class HashTable:
         hash = self.get_hash(key)
         self.arr[hash] = val
 
-# Class to handle Hash collision
+# Class to handle Hash collision - chaining
 class HashCollision:
     def __init__(self):
         self.MAX = 10
@@ -65,7 +65,7 @@ def fun2():
 
     print(h['march 6'])
     print(h['march 17'])
-    print(h.arr)wwwr
+    print(h.arr)
 
 
 if __name__ == '__main__':

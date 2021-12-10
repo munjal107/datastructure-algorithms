@@ -29,7 +29,7 @@ class DynamicProg:
     
     # by dyynamic programming
     # https://www.youtube.com/watch?v=LAKWWDX3sGw&ab_channel=TECHDOSE
-    def dynamix_lcs(self, s1, s2):
+    def dynamic_lcs(self, s1, s2):
         m = len(s1)
         n = len(s2)
 
@@ -170,7 +170,7 @@ if __name__ == '__main__':
     s1 = "AGGTABdd"
     s2 = "GXTXAYBd"
     print("LCS :",dyp.longest_common_sub(s1, s2, len(s1), len(s2)))
-    dyp.dynamix_lcs(s1, s2)
+    dyp.dynamic_lcs(s1, s2)
 
     print("min cost")
     cost= [ [1, 2, 3],
