@@ -1,70 +1,26 @@
-
-class Graph:
-    def __init__(self, edges):
-        self.edges = edges
-        self.graph_dict = {}
-        for start, end in edges:
-            if start in self.graph_dict.keys():
-                self.graph_dict[start].append(end)
+class Solution:
+    def findPeakElement(self, nums):
+        if len(nums) == 1:
+            return 0
+        if len(nums) == 2:
+            if nums[0]<nums[1]:
+                return 1
             else:
-                self.graph_dict[start] = [end]
-        print(self.graph_dict)
+                return 0
+        l,r = 0, len(nums)-1
+        while(l<=r):
+            m = (l+r) // 2
+            
+            if (m-1<0 or nums[m-1] < nums[m]) and (m+1 >= len(nums) or nums[m] > nums[m+1]):
+                return m
+            elif nums[m-1] > nums[m]:
+                r = m-1
+            else:
+                l = m + 1
+                        
 
-    def get_path(self, start, end, path=[]):
-        path = path + [start]
+if __name__ == '__main__':
+    nums = [1,2,1,3,5,6,7]
+    obj = Solution()
+    print(obj.findPeakElement(nums))
 
-        if start == end:
-            return [path]
-
-        if start not in self.graph_dict.keys():
-            return []
-        
-        paths = []
-        for node in self.graph_dict[start]:
-            if node not in path:
-                print(f"start -{start} - node=>{node} - end=>{end}")
-                new_paths = self.get_path(node, end, path)
-                print(f"after - node=>{node} - {new_paths}")
-                for p in new_paths:
-                    paths.append(p)
-        
-        return paths
-
-    def get_shortest_path(self, start, end, path=[]):
-        path = path + [start]
-
-        if start==end:
-            return [path]
-        
-        if start not in self.graph_dict.keys():
-            return []
-        
-        shortest_path = None
-        for node in self.graph_dict[start]:
-            if node not in path:
-                new_paths = self.get_shortest_path(node, end, path)
-            if new_paths:
-                print(new_paths)
-                pass
-
-
-
-
-if __name__ == "__main__":
-    routes = [
-        ("Mumbai", "Paris"),
-        ("Mumbai", "Dubai"),
-        ("Paris", "Dubai"),
-        ("Paris", "New York"),
-        ("Dubai", "New York"),
-        ("New York", "Toronto"),
-        # ("Mumbai", "New York")
-
-    ]
-
-    route_graph = Graph(routes)
-
-    s = "Mumbai"
-    e = "New York"
-    ap = route_graph.get_path(s, e)
-    print(ap)
