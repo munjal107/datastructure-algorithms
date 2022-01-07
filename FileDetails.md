@@ -1,6 +1,28 @@
 
 
 ### Inside python Folder 
+#### arrays/
+- *arrays_1.py*
+    - Find the maximum and minimum element in an array
+    - Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo
+    - Move all the negative elements to one side of the array 
+    - Find the Union and Intersection of the two sorted arrays.
+    - Largest Sum Contiguous Subarray (kaden's Algo)
+    - Minimum number of jumps to reach end
+
+- *arrays_2.py*
+    - reverse the array
+    - Find the maximum and minimum element in an array
+    - Find the "Kth" max and min element of an array - find kth largest/smallest element
+    - Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo - P75
+    - Move all the negative elements to one side of the array 
+    - Find the Union and Intersection of the two sorted arrays.
+
+
+
+
+
+#### Old
 problems/
 - *arrays_1.py*
     - Find the maximum and minimum element in an array
